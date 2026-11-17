@@ -7,7 +7,9 @@ import io.swagger.v3.oas.models.OpenAPI;
 import io.swagger.v3.oas.models.Operation;
 import io.swagger.v3.oas.models.examples.Example;
 import io.swagger.v3.oas.models.headers.Header;
+import io.swagger.v3.oas.models.info.Contact;
 import io.swagger.v3.oas.models.info.Info;
+import io.swagger.v3.oas.models.info.License;
 import io.swagger.v3.oas.models.media.Content;
 import io.swagger.v3.oas.models.media.IntegerSchema;
 import io.swagger.v3.oas.models.media.MediaType;
@@ -39,12 +41,18 @@ public class OpenApiConfig {
         return new OpenAPI()
                 .info(new Info()
                         .title("API Biblioteca de Filmes")
-                        .version("2.0.0"))
+                        .version("2.0.0")
+                        .description("Explore e gerencie um catálogo de filmes, com informações sobre obras, diretores, gêneros e avaliações.")
+                        .contact(new Contact()
+                                .email("wanessacastro206@gmail.com"))
+                        .license(new License()
+                                .name("MIT")
+                                .url("https://mit-license.org/")))
                 .components(new Components().addSecuritySchemes(ESQUEMA_API_KEY, new SecurityScheme()
                         .type(SecurityScheme.Type.APIKEY)
                         .in(SecurityScheme.In.HEADER)
                         .name("X-API-Key")
-                        .description("Chave de API gerada em `POST /api-keys`. Chaves de demonstração estão no README.")));
+                        .description("Chave de API utilizada para acessar operações protegidas.")));
     }
 
     @Bean
@@ -74,10 +82,7 @@ public class OpenApiConfig {
                 operation.addParametersItem(new HeaderParameter()
                         .name("X-Idempotency-Key")
                         .required(false)
-                        .description("Chave de idempotência (até 128 caracteres, ex.: um UUID). Repetir o POST com a mesma "
-                                + "chave e o mesmo corpo devolve a resposta original, com `Idempotent-Replayed: true`, "
-                                + "sem criar um novo registro. Mesma chave com corpo diferente → 422; "
-                                + "mesma chave com a 1ª requisição ainda em andamento → 409.")
+                        .description("Chave de idempotência. Repetir o POST com a mesma chave e o mesmo corpo devolve a resposta original, sem criar um novo registro.")
                         .schema(new StringSchema().example("7b2f6c1e-3a54-4d0e-9a6e-1c2d3e4f5a6b")));
 
                 adicionarResposta(operation, "422",
