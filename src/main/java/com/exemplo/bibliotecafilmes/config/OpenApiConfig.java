@@ -43,15 +43,6 @@ public class OpenApiConfig {
                         .version("2.0.0")
                         .description("API RESTful para gerenciar filmes, diretores, gêneros, usuários e avaliações, "
                                 + "com paginação, Bean Validation e links HATEOAS.\n\n"
-                                + "**Recursos avançados (Parte 2):**\n"
-                                + "- **Autenticação por chave de API** — cabeçalho `X-API-Key`. Consultas (GET) são públicas; "
-                                + "POST/PUT exigem chave de nível `USUARIO`; DELETE e `/api-keys` exigem `ADMIN`. "
-                                + "Use o botão **Authorize** para informar a chave.\n"
-                                + "- **Idempotência** — envie `X-Idempotency-Key` em qualquer POST: repetir a requisição com a mesma "
-                                + "chave devolve a resposta original (`Idempotent-Replayed: true`) sem criar nada novo.\n"
-                                + "- **Rate limiting** — por IP; respostas trazem `X-RateLimit-*` e, ao exceder, `429` com `Retry-After`.\n"
-                                + "- **CORS** — apenas origens configuradas em `app.cors.allowed-origins`.\n"
-                                + "- **Versionamento** — cabeçalho `X-API-Version` (1 ou 2) em `GET /filmes/{id}`.")
                         .contact(new Contact()
                                 .email("wanessacastro206@gmail.com"))
                         .license(new License()
