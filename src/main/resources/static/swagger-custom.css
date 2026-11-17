@@ -1,0 +1,37 @@
+:root {
+    --azul-escuro: #0a2f5c;
+    --azul: #0b5cab;
+    --azul-claro: #e8f1fb;
+    --azul-borda: #b7d3f0;
+}
+
+body { margin: 0; background: #f4f8fd; font-family: "Segoe UI", Roboto, Arial, sans-serif; }
+
+/* Cabeçalho */
+.topo { background: linear-gradient(90deg, var(--azul-escuro), var(--azul)); color: #fff; box-shadow: 0 2px 8px rgba(10, 47, 92, .35); }
+.topo-conteudo { max-width: 1460px; margin: 0 auto; padding: 14px 20px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px; }
+.topo-titulo { font-size: 1.35rem; font-weight: 700; letter-spacing: .3px; }
+.topo nav { display: flex; align-items: center; gap: 14px; }
+.topo-licenca { background: rgba(255, 255, 255, .18); border-radius: 12px; padding: 3px 12px; font-size: .85rem; font-weight: 600; }
+.topo-link { color: #fff; font-weight: 600; text-decoration: none; border: 1px solid rgba(255, 255, 255, .7); border-radius: 6px; padding: 5px 14px; }
+.topo-link:hover { background: #fff; color: var(--azul); }
+
+/* Swagger UI */
+.swagger-ui .info .title { color: var(--azul-escuro); }
+.swagger-ui .info a, .swagger-ui a.nostyle, .swagger-ui .info .link { color: var(--azul); }
+.swagger-ui .opblock-tag { color: var(--azul-escuro); border-bottom: 1px solid var(--azul-borda); }
+.swagger-ui .opblock-tag:hover { background: var(--azul-claro); }
+.swagger-ui .btn.execute { background: var(--azul); border-color: var(--azul); color: #fff; }
+.swagger-ui .btn.execute:hover { background: var(--azul-escuro); }
+.swagger-ui .btn.try-out__btn { border-color: var(--azul); color: var(--azul); }
+.swagger-ui .opblock-summary-method { background: var(--azul); }
+.swagger-ui .opblock.opblock-get { background: rgba(11, 92, 171, .07); border-color: var(--azul); }
+.swagger-ui .opblock.opblock-get .opblock-summary-method { background: var(--azul); }
+.swagger-ui .opblock.opblock-post { background: rgba(0, 150, 199, .08); border-color: #0096c7; }
+.swagger-ui .opblock.opblock-post .opblock-summary-method { background: #0096c7; }
+.swagger-ui .opblock.opblock-put { background: rgba(63, 81, 181, .08); border-color: #3f51b5; }
+.swagger-ui .opblock.opblock-put .opblock-summary-method { background: #3f51b5; }
+/* DELETE continua em vermelho para destacar a ação destrutiva */
+.swagger-ui .scheme-container { background: #fff; box-shadow: 0 1px 2px var(--azul-borda); }
+.swagger-ui section.models { border-color: var(--azul-borda); }
+.swagger-ui .response-col_status { color: var(--azul-escuro); }
